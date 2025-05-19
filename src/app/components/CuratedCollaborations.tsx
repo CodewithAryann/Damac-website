@@ -48,7 +48,7 @@ export default function CuratedCollaborations() {
         A new realm of curated collaborations
       </h2>
       <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-        DAMAC has worked closely with some of the world's most sought-after
+        DAMAC has worked closely with some of the world&#39;s most sought-after
         purveyors of luxury to create truly exquisite environments.
       </p>
 
