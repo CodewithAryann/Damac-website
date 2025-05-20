@@ -62,7 +62,7 @@ const SearchResults = () => {
         {loading ? (
           <p className="text-center text-gray-600">Loading properties...</p>
         ) : error ? (
-          <p className="text-center text-red-500">Failed to load properties. Please try again later.</p>
+          <p className="text-center text-red-500">Failed to load properties. This may be due to deployment issues on Vercel.</p>
         ) : filtered.length === 0 ? (
           <p className="text-center text-gray-500">No properties found for the selected filters.</p>
         ) : (
