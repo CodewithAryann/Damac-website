@@ -1,10 +1,9 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
+export const dynamic = 'force-dynamic'; // ⬅️ Important: prevents build errors on Vercel
 
 type Property = {
   id: number;
@@ -13,7 +12,7 @@ type Property = {
   property: string;
   bedrooms: string;
   price: string;
-  images: string; // Stored as comma-separated string in DB
+  images: string; // comma-separated
 };
 
 const ResultsPage = () => {
@@ -44,12 +43,11 @@ const ResultsPage = () => {
       });
   }, []);
 
-  const filtered = properties.filter(
-    (p) =>
-      (location === 'All locations' || p.location === location) &&
-      (property === 'Any' || p.property === property) &&
-      (bedrooms === 'Any' || p.bedrooms === bedrooms) &&
-      (price === 'Any' || p.price === price)
+  const filtered = properties.filter((p) =>
+    (location === 'All locations' || p.location === location) &&
+    (property === 'Any' || p.property === property) &&
+    (bedrooms === 'Any' || p.bedrooms === bedrooms) &&
+    (price === 'Any' || p.price === price)
   );
 
   return (
