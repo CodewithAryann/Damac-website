@@ -3,8 +3,6 @@
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-export const dynamic = 'force-dynamic'; // ⬅️ Important: prevents build errors on Vercel
-
 type Property = {
   id: number;
   title: string;
@@ -12,7 +10,7 @@ type Property = {
   property: string;
   bedrooms: string;
   price: string;
-  images: string; // comma-separated
+  images: string;
 };
 
 const ResultsPage = () => {
@@ -29,25 +27,21 @@ const ResultsPage = () => {
     fetch('/api/properties')
       .then((res) => res.json())
       .then((data) => {
-        console.log('Fetched data:', data);
         if (Array.isArray(data)) {
           setProperties(data);
         } else {
-          console.error('Invalid data from API:', data);
           setProperties([]);
         }
       })
-      .catch((err) => {
-        console.error('Fetch error:', err);
-        setProperties([]);
-      });
+      .catch(() => setProperties([]));
   }, []);
 
-  const filtered = properties.filter((p) =>
-    (location === 'All locations' || p.location === location) &&
-    (property === 'Any' || p.property === property) &&
-    (bedrooms === 'Any' || p.bedrooms === bedrooms) &&
-    (price === 'Any' || p.price === price)
+  const filtered = properties.filter(
+    (p) =>
+      (location === 'All locations' || p.location === location) &&
+      (property === 'Any' || p.property === property) &&
+      (bedrooms === 'Any' || p.bedrooms === bedrooms) &&
+      (price === 'Any' || p.price === price)
   );
 
   return (
