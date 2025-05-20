@@ -11,6 +11,9 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
+    "mongoose": "^8.15.0",
+    "mssql": "^11.0.1",
+    "mysql2": "^3.14.1",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -22,6 +25,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/mssql": "^9.1.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -29,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
